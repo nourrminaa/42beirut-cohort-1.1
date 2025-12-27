@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
+/*   ft_print_hex.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 21:00:00 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/27 21:17:12 by nmina            ###   ########.fr       */
+/*   Created: 2025/12/24 11:08:10 by nmina             #+#    #+#             */
+/*   Updated: 2025/12/27 21:45:53 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numlen(int n)
+int	ft_print_hex(unsigned int nb, int upper)
 {
-	int	len;
+	char	*hex;
+	int		count;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-int	ft_print_nbr(int n)
-{
-	ft_putnbr_fd(n, 1);
-	return (ft_numlen(n));
+	if (upper)
+		hex = "0123456789ABCDEF";
+	else
+		hex = "0123456789abcdef";
+	count = 0;
+	if (nb >= 16)
+		count += ft_print_hex(nb / 16, upper);
+	ft_putchar_fd(hex[nb % 16], 1);
+	count++;
+	return (count);
 }

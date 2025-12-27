@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 21:00:00 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/27 21:17:12 by nmina            ###   ########.fr       */
+/*   Created: 2025/12/24 11:06:00 by nmina             #+#    #+#             */
+/*   Updated: 2025/12/27 21:47:10 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numlen(int n)
+int	ft_print_ptr_hex(unsigned long nb)
 {
-	int	len;
+	char	*hex;
+	int		count;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+	hex = "0123456789abcdef";
+	count = 0;
+	if (nb >= 16)
+		count += ft_print_ptr_hex(nb / 16);
+	ft_putchar_fd(hex[nb % 16], 1);
+	count++;
+	return (count);
 }
 
-int	ft_print_nbr(int n)
+int	ft_print_ptr(void *ptr)
 {
-	ft_putnbr_fd(n, 1);
-	return (ft_numlen(n));
+	int	count;
+
+	if (!ptr)
+		return (ft_print_str("0x0"));
+	count = 0;
+	count += ft_print_str("0x");
+	count += ft_print_ptr_hex((unsigned long)ptr);
+	return (count);
 }

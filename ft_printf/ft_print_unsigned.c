@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/24 21:00:00 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/27 21:17:12 by nmina            ###   ########.fr       */
+/*   Created: 2025/12/27 21:18:22 by nmina             #+#    #+#             */
+/*   Updated: 2025/12/27 21:21:20 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_numlen(int n)
+int	ft_print_unsigned(unsigned int n)
 {
-	int	len;
+	int	count;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n != 0)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
-}
-
-int	ft_print_nbr(int n)
-{
-	ft_putnbr_fd(n, 1);
-	return (ft_numlen(n));
+	count = 0;
+	if (n >= 10)
+		count += ft_print_unsigned(n / 10);
+	count += ft_print_char((n % 10) + '0');
+	return (count);
 }
