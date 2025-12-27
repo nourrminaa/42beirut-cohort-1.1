@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 23:24:38 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/24 11:05:56 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/27 21:44:32 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,8 @@ int ft_printf(const char *format, ...);
 int ft_print_char(int c);
 int ft_print_str(char *s);
 int ft_print_ptr(void *v);
+int ft_print_hex(unsigned int nb, int upper);
+int ft_print_nbr(int n);
+int ft_print_unsigned(unsigned int n);
 
 #endif
