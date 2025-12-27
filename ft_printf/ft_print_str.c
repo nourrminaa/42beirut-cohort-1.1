@@ -6,16 +6,16 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 23:31:18 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/24 10:50:11 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/27 22:32:57 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ft_printf.h"
+#include "ft_printf.h"
 
-int ft_print_str(char *s)
+int	ft_print_str(char *s)
 {
-    if (!s)
-        s = "(null)";
-    ft_putstr_fd(s, 1);
-    return (ft_strlen(s));
+	if (!s)
+		s = "(null)";
+	ft_putstr_fd(s, 1);
+	return (ft_strlen(s));
 }

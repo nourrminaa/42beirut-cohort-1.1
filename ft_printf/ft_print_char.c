@@ -6,14 +6,14 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 21:24:24 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/23 23:24:29 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/27 22:31:56 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_print_char(int c)
+int	ft_print_char(int c)
 {
-    ft_putchar_fd(c, 1);
-    return (1);
+	ft_putchar_fd(c, 1);
+	return (1);
 }
