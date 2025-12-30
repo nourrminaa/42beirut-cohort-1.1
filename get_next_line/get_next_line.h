@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 19:57:14 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/30 19:29:08 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/30 19:44:55 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(const char *s1, char const *s2);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strdup(const char *s1);
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_calloc(size_t count, size_t size);
 
 #endif

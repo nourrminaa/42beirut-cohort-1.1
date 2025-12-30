@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 14:27:10 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/30 19:26:08 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/30 19:47:28 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*ft_read_to_leftover(int fd, char *leftover)
 	int		bytes_read;
 	char	*temp;
 
-	buf = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
 	bytes_read = 1;
@@ -95,20 +95,20 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-#include <fcntl.h>
-#include <stdio.h>
+// #include <fcntl.h>
+// #include <stdio.h>
 
-int main(void)
-{
-    // int     fd;
-    char    *line;
+// int main(void)
+// {
+//     // int     fd;
+//     char    *line;
 
-    // fd = open("test.txt", O_RDONLY);
-    while ((line = get_next_line(0)) != NULL)
-    {
-        printf("%s", line);
-        free(line);
-    }
-    // close(fd);
-    return (0);
-}
+//     // fd = open("test.txt", O_RDONLY);
+//     while ((line = get_next_line(0)) != NULL)
+//     {
+//         printf("%s", line);
+//         free(line);
+//     }
+//     // close(fd);
+//     return (0);
+// }

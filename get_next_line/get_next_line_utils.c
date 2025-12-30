@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 14:00:10 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/30 19:28:17 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/30 19:46:51 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,37 +102,4 @@ char	*ft_strdup(const char *s1)
 	}
 	dup[i] = '\0';
 	return (dup);
-}
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	size_t			i;
-	unsigned char	*str;
-
-	i = 0;
-	str = (unsigned char *)b;
-	while (len > 0)
-	{
-		str[i] = (unsigned char)c;
-		i++;
-		len--;
-	}
-	return (b);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-	size_t	total_size;
-
-	if (count == 0 || size == 0)
-		return (malloc(1));
-	total_size = count * size;
-	if (count > SIZE_MAX / size)
-		return (0);
-	ptr = malloc(total_size);
-	if (!ptr)
-		return (0);
-	ft_memset(ptr, 0, total_size);
-	return (ptr);
 }
