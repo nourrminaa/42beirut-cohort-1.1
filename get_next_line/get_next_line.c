@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 14:27:10 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/30 15:42:59 by nmina            ###   ########.fr       */
+/*   Updated: 2025/12/30 15:49:43 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 static char	*ft_read_to_leftover(int fd, char *leftover)
 {
-	char	*buf;
+	char	buf[BUFFER_SIZE + 1];
 	int		bytes_read;
 	char	*temp;
 
-	buf = malloc(BUFFER_SIZE + 1);
-	if (!buf)
-		return (NULL);
 	bytes_read = 1;
 	while ((!leftover || !ft_strchr(leftover, '\n')) && bytes_read != 0)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
 		if (bytes_read == -1)
 		{
-			free(buf);
 			free(leftover);
 			return (NULL);
 		}
@@ -38,7 +34,6 @@ static char	*ft_read_to_leftover(int fd, char *leftover)
 		leftover = ft_strjoin(temp, buf);
 		free(temp);
 	}
-	free(buf);
 	return (leftover);
 }
 
@@ -47,7 +42,7 @@ static char	*ft_extract_line(char *leftover)
 	size_t	i;
 	char	*line;
 
-	if (!leftover || !leftover[0])    // ✅ NULL check FIRST
+	if (!leftover || !leftover[0])
 		return (NULL);
 	i = 0;
 	while (leftover[i] && leftover[i] != '\n')
@@ -57,6 +52,7 @@ static char	*ft_extract_line(char *leftover)
 	line = ft_substr(leftover, 0, i);
 	return (line);
 }
+
 static char	*ft_update_leftover(char *leftover)
 {
 	size_t	i;
@@ -94,17 +90,17 @@ char	*get_next_line(int fd)
 // #include <fcntl.h>
 // #include <stdio.h>
 
-// int	main(void)
+// int main(void)
 // {
-// 	int		fd;
-// 	char	*line;
+//     int     fd;
+//     char    *line;
 
-// 	fd = open("test.txt", O_RDONLY);
-// 	while ((line = get_next_line(fd)) != NULL)
-// 	{
-// 		printf("%s", line);
-// 		free(line);
-// 	}
-// 	close(fd);
-// 	return (0);
+//     fd = open("test.txt", O_RDONLY);
+//     while ((line = get_next_line(fd)) != NULL)
+//     {
+//         printf("%s", line);
+//         free(line);
+//     }
+//     close(fd);
+//     return (0);
 // }
