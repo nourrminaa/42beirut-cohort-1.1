@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 17:27:18 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/27 22:28:32 by nmina            ###   ########.fr       */
+/*   Updated: 2026/01/19 09:28:46 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,12 @@ int	ft_printf(const char *format, ...)
 
 // 	ft_printf("--- printf ---\n");
 // 	return_value1 = printf("%c %s %d %i %u %x %X %p %%\n", 
-	//'A', "hi", -42, 42, 42, 255, 255, str);
+// 	'A', "hi", -42, 42, 42, 255, 255, str);
 //     ft_printf("%c", '\n');
 
 // 	ft_printf("--- ft_printf ---\n");
-// 	return_value2 = ft_printf("%c %s %d %i 
-	// %u %x %X %p %%\n", 'A', "hi", -42, 42, 42, 255, 255, str);
-//     ft_printf("%c", '\n');
+// 	return_value2 = ft_printf("%c %s %d %i %u %x %X %p %%\n",
+// 	'A', "hi", -42, 42, 42, 255, 255, str);
 
 //     ft_printf("--- Return Values ---\n");
 //     ft_printf("Return value of printf: %d\n", return_value1);
