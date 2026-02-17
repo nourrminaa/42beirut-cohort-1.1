@@ -6,7 +6,7 @@
 /*   By: nmina <nmina@student.42beirut.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 11:06:00 by nmina             #+#    #+#             */
-/*   Updated: 2025/12/27 22:31:03 by nmina            ###   ########.fr       */
+/*   Updated: 2026/01/19 11:41:14 by nmina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_print_ptr(void *ptr)
 	int	count;
 
 	if (!ptr)
-		return (ft_print_str("0x0"));
+		return (ft_print_str("(nil)"));
 	count = 0;
 	count += ft_print_str("0x");
 	count += ft_print_ptr_hex((unsigned long)ptr);
