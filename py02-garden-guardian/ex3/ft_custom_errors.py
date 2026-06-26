@@ -1,13 +1,16 @@
 class GardenError(Exception):
-    pass
+    def __init__(self, message: str = "Unknown garden error") -> None:
+        super().__init__(message)
 
 
 class PlantError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown plant error") -> None:
+        super().__init__(message)
 
 
 class WaterError(GardenError):
-    pass
+    def __init__(self, message: str = "Unknown water error") -> None:
+        super().__init__(message)
 
 
 class Plant:
@@ -23,6 +26,8 @@ class Plant:
 def check_tank(liters: int) -> None:
     if liters < 10:
         raise WaterError("Not enough water in the tank!")
+    if liters == 42000000:
+        raise WaterError()
 
 
 def test_custom_errors() -> None:
@@ -50,6 +55,11 @@ def test_custom_errors() -> None:
 
     try:
         check_tank(2)
+    except GardenError as e:
+        print(f"Caught GardenError: {e}")
+
+    try:
+        check_tank(42000000)
     except GardenError as e:
         print(f"Caught GardenError: {e}")
 
