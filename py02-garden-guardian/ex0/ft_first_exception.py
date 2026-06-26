@@ -1,5 +1,5 @@
 def input_temperature(temp_str: str) -> int:
-    try: 
+    try:
         temp_int = int(temp_str)
     except ValueError as e:
         print(f"Caught input_temperature error: {e}")
@@ -7,6 +7,7 @@ def input_temperature(temp_str: str) -> int:
         print(f"Temperature is now {temp_int}°C")
         return temp_int
     return 0
+
 
 def test_temperature() -> None:
     print("=== Garden Temperature ===")

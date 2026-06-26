@@ -7,7 +7,7 @@ def garden_operations(operation_number: int) -> None:
         elif operation_number == 2:
             open("/non/existent/file")
         elif operation_number == 3:
-            "a" + 1 # type: ignore
+            "a" + 1  # type: ignore
         else:
             print("Operation completed successfully")
     except (ValueError, ZeroDivisionError, FileNotFoundError, TypeError) as e:
