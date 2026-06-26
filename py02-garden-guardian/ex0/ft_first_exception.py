@@ -1,9 +1,9 @@
 def input_temperature(temp_str: str) -> int:
     try: 
         temp_int = int(temp_str)
-    except ValueError: 
-        print("Caught input_temperature error: invalid literal for int() with base 10: 'abc'")
-    else: 
+    except ValueError as e:
+        print(f"Caught input_temperature error: {e}")
+    else:
         print(f"Temperature is now {temp_int}°C")
         return temp_int
     return 0
